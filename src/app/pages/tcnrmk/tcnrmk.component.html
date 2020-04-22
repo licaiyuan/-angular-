@@ -1,0 +1,43 @@
+<div nz-row>
+  <div nz-col nzSpan="8" *ngFor="let item of gs" class="hzp">
+    <!-- <p>{{ item.label }}:</p> -->
+    {{ item.label }}:
+    <p *ngIf="item.type == 'text'" style="height: 7px;" class="textwb">
+      {{ item.value }}
+    </p>
+    <input
+      nz-input
+      placeholder="请输入{{ item.label }}"
+      [(ngModel)]="form[item.prop]"
+      [type]="item.sjlx"
+      *ngIf="item.type == 'input'"
+    />
+    <textarea
+      rows="4"
+      nz-input
+      [(ngModel)]="form[item.prop]"
+      *ngIf="item.type == 'inputarea'"
+    ></textarea>
+    <nz-radio-group [(ngModel)]="form[item.prop]" *ngIf="item.type == 'dxk'">
+      <label nz-radio [nzValue]="dx" *ngFor="let dx of item.options">{{
+        dx
+      }}</label>
+    </nz-radio-group>
+    <nz-select
+      [(ngModel)]="form[item.prop]"
+      nzPlaceHolder="Choose"
+      *ngIf="item.type == 'xlk'"
+      style="width: 195px;"
+    >
+      <nz-option
+        [nzValue]="lx.value"
+        [nzLabel]="lx.label"
+        *ngFor="let lx of item.options"
+      ></nz-option>
+    </nz-select>
+    <nz-date-picker
+      [(ngModel)]="form[item.prop]"
+      *ngIf="item.type == 'date'"
+    ></nz-date-picker>
+  </div>
+</div>

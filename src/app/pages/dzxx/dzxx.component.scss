@@ -1,0 +1,22 @@
+@import "../../app.component.scss";
+nz-date-picker,
+nz-month-picker,
+nz-year-picker,
+nz-range-picker,
+nz-week-picker {
+  margin: 0 8px 12px 0;
+}
+.pyh {
+  @include flexa();
+  margin-left: 10px;
+  .sjxz {
+    @include flexa();
+    height: 31px;
+  }
+  input {
+    width: 200px;
+  }
+}
+.ant-select {
+  width: 150px;
+}

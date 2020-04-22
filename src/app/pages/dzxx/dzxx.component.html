@@ -1,0 +1,50 @@
+<div *ngFor="let item of items" class="pyh">
+  <button
+    nz-button
+    nzType="primary"
+    *ngIf="item.type == 'button'"
+    (click)="cffa(item)"
+  >
+    {{ item.name }}
+  </button>
+  <!-- <a :href="cffa(item)" *ngIf="item.type == 'abutton'">
+    <button nz-button nzType="primary" nzDanger>
+      {{ item.name }}
+    </button></a
+  > -->
+  <nz-upload
+    nzAction="http://39.108.180.151:10010/excel"
+    *ngIf="item.type == 'upload'"
+    [nzHeaders]="{ authorization: 'authorization-text' }"
+  >
+    <button nz-button><i nz-icon nzType="upload"></i>{{ item.name }}</button>
+  </nz-upload>
+  <div *ngIf="item.type == 'datepick' || item.type == 'selected'" class="sjxz">
+    <p [ngStyle]="styleMethod02(item.type)">{{ item.name }}</p>
+    <nz-range-picker
+      [(ngModel)]="xxsj[item.prop]"
+      (ngModelChange)="onChange($event)"
+      nzFormat="yyyy / MM / dd"
+      *ngIf="item.type == 'datepick'"
+    ></nz-range-picker>
+    <nz-select
+      [(ngModel)]="xxsj[item.prop]"
+      nzPlaceHolder="Choose"
+      *ngIf="item.type == 'selected'"
+    >
+      <nz-option
+        nzValue="{{ xx.value }}"
+        nzLabel="{{ xx.name }}"
+        *ngFor="let xx of item.xlxx"
+      ></nz-option>
+    </nz-select>
+  </div>
+  <div *ngIf="item.type == 'input'">
+    {{ item.name }}:
+    <input
+      nz-input
+      placeholder="请输入{{ item.name }}"
+      [(ngModel)]="xxsj[item.prop]"
+    />
+  </div>
+</div>

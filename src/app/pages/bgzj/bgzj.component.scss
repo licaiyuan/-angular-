@@ -1,0 +1,12 @@
+@import "../../app.component.scss";
+.hzp {
+  @include flexa;
+}
+.szp {
+  @include flexa(column, flex-start, nowrap, left);
+  width: 100%;
+}
+nz-pagination {
+  text-align: center;
+  margin-top: 20px;
+}

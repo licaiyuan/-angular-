@@ -1,0 +1,62 @@
+<!-- <dzxx-root [items]="sydxx"> </dzxx-root>
+<bgzj-root [bgcolumn]="bgcolumn" > </bgzj-root> -->
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+        <h1>导航栏</h1>
+      </a>
+    </div>
+    <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+      em.1
+    >
+      <li nz-menu-item nzMatchRouter *ngFor="let item of dhlb">
+        <a routerLink="/welcome/{{ item.url }}">
+          <img
+            src="../assets/img/{{ item.img }}"
+            alt="logo"
+            style="height: 18px; width: 18px;"
+          />{{ item.name }}</a
+        >
+        <!-- <div class="dhbtyh">
+          <img src="../assets/img/{{ item.img }}" alt="logo" />
+          <p>{{ item.name }}</p>
+        </div> -->
+        <!-- <a [routerLink]="['/welcome/xtsy', 'components', 'menu', 'en']">{{
+          item.name
+        }}</a> -->
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <!-- <dzxx-root></dzxx-root> -->
+        <router-outlet class="zjbf"></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

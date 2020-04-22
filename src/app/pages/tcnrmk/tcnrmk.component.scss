@@ -1,0 +1,17 @@
+@import "../../app.component.scss";
+.hzp {
+  @include flexa();
+  margin-top: 10px;
+  p {
+    height: 13px;
+  }
+  input,
+  textarea {
+    width: 70%;
+  }
+}
+.textwb {
+  height: 7px;
+  margin-left: 10px;
+  width: 224px;
+}

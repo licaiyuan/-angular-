@@ -1,0 +1,54 @@
+<div class="szp">
+  <nz-table
+    #basicTable
+    [nzData]="listOfData"
+    style="margin-top: 20px; overflow-x: auto;"
+    [nzScroll]="{ x: x }"
+    #borderedTable
+    nzBordered
+    nzShowPagination="false"
+  >
+    <thead>
+      <tr>
+        <th
+          *ngFor="let item of bgcolumn['pt']"
+          [nzRight]="item.name == '操作' ? '0px' : null"
+          nzWidth="600px"
+          nzAlign="center"
+        >
+          {{ item.name }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td
+          *ngFor="let item of bgcolumn['pt']"
+          [nzRight]="item.name == '操作' ? '0px' : null"
+          nzAlign="center"
+        >
+          <div *ngIf="item.name != '操作'; else elseBlock">
+            {{ data[item.prop] }}
+          </div>
+          <ng-template #elseBlock class="hzp">
+            <button
+              nz-button
+              nzType="primary"
+              *ngFor="let item of bgcolumn['gj']"
+              nzShape="circle"
+              style="margin: 7px;"
+              (click)="gjcz(data, item)"
+            >
+              <i nz-icon [nzType]="item.icon"></i></button
+          ></ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <nz-pagination
+    [nzTotal]="total"
+    nzPageSize="7"
+    (nzPageIndexChange)="ysgb($event)"
+  ></nz-pagination>
+</div>

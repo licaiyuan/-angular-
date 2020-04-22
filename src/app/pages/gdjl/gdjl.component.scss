@@ -1,0 +1,4 @@
+@import "../../app.component.scss";
+.ztbj {
+  @include flexa(column, flex-start, nowrap);
+}

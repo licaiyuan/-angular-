@@ -1,0 +1,20 @@
+<dzxx-root [items]="sydxx" [cffa]="cffa" [xxsj]="xxsj"></dzxx-root>
+<bgzj-root
+  [bgcolumn]="bgcolumn"
+  [listOfData]="bgsj"
+  [total]="totala"
+  x="2127px"
+  (qhys)="qh($event)"
+  (czsj)="gj($event)"
+></bgzj-root>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="title"
+  [nzCancelText]="null"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzClosable="false"
+  nzWidth="1000"
+>
+  <tcnrmk-root [gs]="khmb" #khmk [(form)]="form"></tcnrmk-root>
+</nz-modal>
